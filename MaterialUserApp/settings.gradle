@@ -1,0 +1,2 @@
+rootProject.name='Material User App'
+include ':app'

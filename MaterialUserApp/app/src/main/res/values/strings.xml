@@ -1,0 +1,50 @@
+<resources>
+    <!-- MainActivity -->
+    <string name="app_name">Material User App</string>
+    <string name="team_number_hint">Team Number</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="start">Start</string>
+    <string name="match_number_hint">Match Number</string>
+    <string name="make_qr">Make QR</string>
+    <string name="clear_db">Clear DB</string>
+    <string name="storm_logo">Storm Logo</string>
+
+    <!-- MatchActivity -->
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="lower_header">Lower Port Power Cells</string>
+    <string name="zero">0</string>
+    <string name="outer_header">Outer Port Power Cells</string>
+    <string name="inner_header">Inner Port Power Cells</string>
+    <string name="match_title">Match</string>
+    <string name="tab_auto">Auto</string>
+    <string name="pickup_header">Picked Up Power Cells</string>
+    <string name="rotation_control">Rotation Control</string>
+    <string name="position_control">Position Control</string>
+    <string name="error_teamnum_missing">Team Number is required.</string>
+    <string name="error_teamnum_notnumber">Team must be a number.</string>
+    <string name="error_teamnumber_toolong">Team Number is too long.</string>
+    <string name="error_matchnum_missing">Match Number is required.</string>
+    <string name="error_matchnum_notnumber">Match must be a number.</string>
+    <string name="error_alliance_missing">Alliance is required.</string>
+    <string name="empty" />
+    <string name="error_field_empty">This field is required</string>
+    <string name="error_notnumber">This must be a number.</string>
+    <string name="error_toolong">This number is too long.</string>
+    <string name="toast_errors">Cannot start due to errors above.</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- SettingsActivity -->
+    <string name="prefs_theme_default_value">follow_system</string>
+    <string name="prefs_theme_title">Day/Night Theme</string>
+    <string name="prefs_theme_key">theme</string>
+    <string name="settings_appbar_title">Settings</string>
+    <string name="tab_teleop">Teleop</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="playing_defense">Playing Defense</string>
+    <string name="scoring">Scoring</string>
+</resources>
