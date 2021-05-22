@@ -40,7 +40,7 @@ public class MatchActivity extends AppCompatActivity
         // Setup the viewpager and tablayout to work together, using the subclassed Adapter to
         // handle changes.
         ViewPager2 viewPager = findViewById(R.id.pager_match);
-        TabLayout tabLayout = findViewById(R.id.tablayout_match);
+        TabLayout tabLayout = findViewById(R.id.tabLayout_match);
         FragmentStateAdapter pagerAdapter = new MatchFragmentPagerAdapter(this);
 
         viewPager.setAdapter(pagerAdapter);

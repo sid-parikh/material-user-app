@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MatchActivity">
+    tools:context=".MatchActivity"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/layout_appbar_match"
@@ -21,7 +22,7 @@
             app:title="@string/match_title" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tablayout_match"
+            android:id="@+id/tabLayout_match"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="fixed">
@@ -34,33 +35,32 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager_match"
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="match_parent" />
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        >-->
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
 
-<!--        <com.google.android.material.button.MaterialButtonToggleGroup-->
-<!--            android:id="@+id/togglegroup_defense"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:selectionRequired="false">-->
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroup_defense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionRequired="false">
 
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:id="@+id/toggle_defense"-->
-<!--                style="@style/Widget.Storm.LargerButton.OutlinedButton"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="?attr/actionBarSize"-->
-<!--                android:text="@string/scoring" />-->
-<!--        </com.google.android.material.button.MaterialButtonToggleGroup>-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/toggle_defense"
+                style="@style/Widget.Storm.LargerButton.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:text="@string/scoring" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
 
-<!--        <Chronometer-->
-<!--            android:id="@+id/chronometer_defense"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:gravity="center"-->
-<!--            android:textAppearance="?textAppearanceHeadline6" />-->
-<!--    </LinearLayout>-->
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <Chronometer
+            android:id="@+id/chronometer_defense"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textAppearance="?textAppearanceHeadline6" />
+    </LinearLayout>
+</LinearLayout>

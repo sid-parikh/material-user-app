@@ -1,177 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".TeleopFragment">
 
-    <TextView
-        android:id="@+id/text_teleop_inner_header"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/inner_header"
-        android:textAppearance="?textAppearanceHeadline6"
-        app:layout_constraintBottom_toTopOf="@+id/button_teleop_inner_minus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:layout_gravity="center_vertical"
+        android:padding="16dp"
+        android:translationY="-20sp">
 
-    <Button
-        android:id="@+id/button_teleop_inner_minus"
-        style="@style/Widget.Storm.LargerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/minus"
-        app:layout_constraintBottom_toTopOf="@id/text_teleop_outer_header"
-        app:layout_constraintEnd_toStartOf="@+id/text_teleop_inner_score"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_teleop_inner_header" />
+        <TextView
+            android:id="@+id/text_teleop_inner_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/inner_header"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintBottom_toTopOf="@+id/button_teleop_inner_minus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
-        android:id="@+id/text_teleop_inner_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/zero"
-        android:textAppearance="?textAppearanceBody1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_teleop_inner_minus"
-        app:layout_constraintEnd_toStartOf="@+id/button_teleop_inner_plus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_teleop_inner_minus" />
+        <Button
+            android:id="@+id/button_teleop_inner_minus"
+            style="@style/Widget.Storm.LargerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/minus"
+            app:layout_constraintBottom_toTopOf="@id/text_teleop_outer_header"
+            app:layout_constraintEnd_toStartOf="@+id/text_teleop_inner_score"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_teleop_inner_header" />
 
-    <Button
-        android:id="@+id/button_teleop_inner_plus"
-        style="@style/Widget.Storm.LargerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plus"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_teleop_inner_score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_teleop_inner_score" />
+        <TextView
+            android:id="@+id/text_teleop_inner_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="2"
+            android:text="@string/zero"
+            android:textAlignment="center"
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button_teleop_inner_minus"
+            app:layout_constraintEnd_toStartOf="@+id/button_teleop_inner_plus"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_teleop_inner_minus" />
 
-    <TextView
-        android:id="@+id/text_teleop_outer_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/outer_header"
-        android:textAppearance="?textAppearanceHeadline6"
-        app:layout_constraintBottom_toTopOf="@+id/button_teleop_outer_minus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_teleop_inner_minus"
-        app:layout_constraintVertical_chainStyle="packed" />
+        <Button
+            android:id="@+id/button_teleop_inner_plus"
+            style="@style/Widget.Storm.LargerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_teleop_inner_score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_teleop_inner_score" />
 
-    <Button
-        android:id="@+id/button_teleop_outer_minus"
-        style="@style/Widget.Storm.LargerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/minus"
-        app:layout_constraintBottom_toTopOf="@id/text_teleop_lower_header"
-        app:layout_constraintEnd_toStartOf="@+id/text_teleop_outer_score"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_teleop_outer_header" />
+        <TextView
+            android:id="@+id/text_teleop_outer_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/outer_header"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintBottom_toTopOf="@+id/button_teleop_outer_minus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_teleop_inner_minus"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
-        android:id="@+id/text_teleop_outer_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/zero"
-        android:textAppearance="?textAppearanceBody1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_teleop_outer_minus"
-        app:layout_constraintEnd_toStartOf="@+id/button_teleop_outer_plus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_teleop_outer_minus" />
+        <Button
+            android:id="@+id/button_teleop_outer_minus"
+            style="@style/Widget.Storm.LargerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/minus"
+            app:layout_constraintBottom_toTopOf="@id/text_teleop_lower_header"
+            app:layout_constraintEnd_toStartOf="@+id/text_teleop_outer_score"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_teleop_outer_header" />
 
-    <Button
-        android:id="@+id/button_teleop_outer_plus"
-        style="@style/Widget.Storm.LargerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plus"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_teleop_outer_score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_teleop_outer_score" />
+        <TextView
+            android:id="@+id/text_teleop_outer_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="2"
+            android:text="@string/zero"
+            android:textAlignment="center"
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button_teleop_outer_minus"
+            app:layout_constraintEnd_toStartOf="@+id/button_teleop_outer_plus"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_teleop_outer_minus" />
 
-    <TextView
-        android:id="@+id/text_teleop_lower_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/lower_header"
-        android:textAppearance="?textAppearanceHeadline6"
-        app:layout_constraintBottom_toTopOf="@+id/button_teleop_lower_minus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_teleop_outer_minus"
-        app:layout_constraintVertical_chainStyle="packed" />
+        <Button
+            android:id="@+id/button_teleop_outer_plus"
+            style="@style/Widget.Storm.LargerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_teleop_outer_score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_teleop_outer_score" />
 
-    <Button
-        android:id="@+id/button_teleop_lower_minus"
-        style="@style/Widget.Storm.LargerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/minus"
-        app:layout_constraintBottom_toTopOf="@id/check_rotation"
-        app:layout_constraintEnd_toStartOf="@+id/text_teleop_lower_score"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_teleop_lower_header" />
+        <TextView
+            android:id="@+id/text_teleop_lower_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/lower_header"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintBottom_toTopOf="@+id/button_teleop_lower_minus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_teleop_outer_minus"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
-        android:id="@+id/text_teleop_lower_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/zero"
-        android:textAppearance="?textAppearanceBody1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_teleop_lower_minus"
-        app:layout_constraintEnd_toStartOf="@+id/button_teleop_lower_plus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_teleop_lower_minus" />
+        <Button
+            android:id="@+id/button_teleop_lower_minus"
+            style="@style/Widget.Storm.LargerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/minus"
+            app:layout_constraintBottom_toTopOf="@id/check_rotation"
+            app:layout_constraintEnd_toStartOf="@+id/text_teleop_lower_score"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_teleop_lower_header" />
 
-    <Button
-        android:id="@+id/button_teleop_lower_plus"
-        style="@style/Widget.Storm.LargerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plus"
-        app:layout_constraintBaseline_toBaselineOf="@+id/text_teleop_lower_score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/text_teleop_lower_score" />
+        <TextView
+            android:id="@+id/text_teleop_lower_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="2"
+            android:text="@string/zero"
+            android:textAlignment="center"
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button_teleop_lower_minus"
+            app:layout_constraintEnd_toStartOf="@+id/button_teleop_lower_plus"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_teleop_lower_minus" />
 
-    <CheckBox
-        android:id="@+id/check_rotation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/rotation_control"
-        app:layout_constraintBottom_toTopOf="@id/check_position"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_teleop_lower_minus" />
+        <Button
+            android:id="@+id/button_teleop_lower_plus"
+            style="@style/Widget.Storm.LargerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_teleop_lower_score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/text_teleop_lower_score" />
 
-    <CheckBox
-        android:id="@+id/check_position"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/position_control"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/check_rotation" />
+        <CheckBox
+            android:id="@+id/check_rotation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/rotation_control"
+            app:layout_constraintBottom_toTopOf="@id/check_position"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_teleop_lower_minus" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <CheckBox
+            android:id="@+id/check_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/position_control"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/check_rotation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

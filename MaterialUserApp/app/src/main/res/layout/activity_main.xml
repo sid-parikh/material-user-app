@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="0dp"
     android:paddingTop="?attr/actionBarSize"
     android:paddingBottom="?attr/actionBarSize"
     tools:context=".MainActivity">
@@ -12,7 +12,8 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/layout_appbar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_main"
@@ -23,175 +24,174 @@
             app:title="@string/app_name" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_layout_team"
-            style="@style/Widget.Storm.LargerTextInputLayout"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/team_number_hint"
-            app:counterEnabled="true"
-            app:counterMaxLength="4"
-            app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/text_layout_match"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed">
+            android:layout_gravity="center_vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_team"
-                style="@style/Widget.Storm.LargerTextInputEditText"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_layout_team"
+                style="@style/Widget.Storm.LargerTextInputLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/team_number_hint"
+                app:counterEnabled="true"
+                app:counterMaxLength="4"
+                app:errorEnabled="true"
+                app:layout_constraintBottom_toTopOf="@+id/text_layout_match"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_layout_match"
-            style="@style/Widget.Storm.LargerTextInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
-            android:hint="@string/match_number_hint"
-            app:layout_constraintBottom_toTopOf="@+id/toggle_alliance"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_layout_team">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_team"
+                    style="@style/Widget.Storm.LargerTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_match"
-                style="@style/Widget.Storm.LargerTextInputEditText"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_layout_match"
+                style="@style/Widget.Storm.LargerTextInputLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/match_number_hint"
+                app:layout_constraintBottom_toTopOf="@+id/toggle_alliance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_layout_team">
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/toggle_alliance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="0dp"
-            app:layout_constraintBottom_toTopOf="@id/text_toggle_error"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_layout_match"
-            app:selectionRequired="true"
-            app:singleSelection="true">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_match"
+                    style="@style/Widget.Storm.LargerTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_red"
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggle_alliance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="0dp"
+                app:layout_constraintBottom_toTopOf="@id/text_toggle_error"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_layout_match"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_red"
+                    style="@style/Widget.Storm.LargerButton.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/red" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_blue"
+                    style="@style/Widget.Storm.LargerButton.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/blue" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <TextView
+                android:id="@+id/text_toggle_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="@style/TextAppearance.Storm.LargerTextInputLayout.HintText"
+                android:textColor="?colorError"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/button_start"
+                app:layout_constraintStart_toStartOf="@+id/toggle_alliance"
+                app:layout_constraintTop_toBottomOf="@+id/toggle_alliance"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/button_start"
+                style="@style/Widget.Storm.LargerButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/start"
+                app:layout_constraintBottom_toTopOf="@id/button_qr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_toggle_error" />
+
+            <Button
+                android:id="@+id/button_qr"
                 style="@style/Widget.Storm.LargerButton.OutlinedButton"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/red" />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/make_qr"
+                app:layout_constraintBottom_toTopOf="@id/imageView2"
+                app:layout_constraintEnd_toStartOf="@+id/button_delete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_start" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_blue"
+            <Button
+                android:id="@+id/button_delete"
                 style="@style/Widget.Storm.LargerButton.OutlinedButton"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/blue" />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="32dp"
+                android:text="@string/clear_db"
+                app:layout_constraintBaseline_toBaselineOf="@+id/button_qr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/button_qr" />
 
-        <TextView
-            android:id="@+id/text_toggle_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textAppearance="@style/TextAppearance.Storm.LargerTextInputLayout.HintText"
-            android:textColor="?colorError"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/button_start"
-            app:layout_constraintStart_toStartOf="@+id/toggle_alliance"
-            app:layout_constraintTop_toBottomOf="@+id/toggle_alliance"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/button_start"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/start"
-            app:layout_constraintBottom_toTopOf="@id/button_qr"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_toggle_error" />
-
-        <Button
-            android:id="@+id/button_qr"
-            style="@style/Widget.Storm.LargerButton.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/make_qr"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button_delete"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_start" />
-
-        <Button
-            android:id="@+id/button_delete"
-            style="@style/Widget.Storm.LargerButton.OutlinedButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/clear_db"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_qr"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button_qr" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="8dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/storm_logo"
-            android:maxWidth="64dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_qr"
-            app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/stormlogo512" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/storm_logo"
+                android:maxWidth="64dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_qr"
+                app:srcCompat="@drawable/stormlogo512" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
