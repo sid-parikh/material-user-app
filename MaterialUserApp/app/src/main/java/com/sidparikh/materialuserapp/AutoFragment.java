@@ -37,8 +37,8 @@ public class AutoFragment extends Fragment {
         view.findViewById(R.id.button_auto_lower_plus).setOnClickListener(matchActivity);
         view.findViewById(R.id.button_auto_outer_minus).setOnClickListener(matchActivity);
         view.findViewById(R.id.button_auto_outer_plus).setOnClickListener(matchActivity);
-        view.findViewById(R.id.button_auto_inner_minus).setOnClickListener(matchActivity);
-        view.findViewById(R.id.button_auto_inner_plus).setOnClickListener(matchActivity);
+        //view.findViewById(R.id.button_auto_inner_minus).setOnClickListener(matchActivity);
+        //view.findViewById(R.id.button_auto_inner_plus).setOnClickListener(matchActivity);
         view.findViewById(R.id.button_auto_pickup_minus).setOnClickListener(matchActivity);
         view.findViewById(R.id.button_auto_pickup_plus).setOnClickListener(matchActivity);
     }

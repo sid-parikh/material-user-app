@@ -2,9 +2,7 @@ package com.sidparikh.materialuserapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +20,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
  */
 
 public class MatchActivity extends AppCompatActivity
-        implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+        implements CompoundButton.OnCheckedChangeListener, CounterView.ScoreChangeListener {
 
     private static final String WHOOSH_KEY = "whoosh";
 
@@ -37,7 +35,7 @@ public class MatchActivity extends AppCompatActivity
         MaterialToolbar toolbar = findViewById(R.id.toolbar_match);
         setSupportActionBar(toolbar);
 
-        // Setup the viewpager and tablayout to work together, using the subclassed Adapter to
+        // Setup the viewpager and TabLayout to work together, using the subclassed Adapter to
         // handle changes.
         ViewPager2 viewPager = findViewById(R.id.pager_match);
         TabLayout tabLayout = findViewById(R.id.tabLayout_match);
@@ -79,132 +77,28 @@ public class MatchActivity extends AppCompatActivity
     }
 
     /**
-     * Handles clicks for any button within the fragments.
-     *
-     * @param v clicked button
-     */
-
-    @Override
-    public void onClick(View v) {
-        TextView scoreView;
-
-        switch (v.getId()) {
-
-            /*
-               For increment and decrement buttons, use the incrementScore and decrementScore
-               methods, which update TextViews and return the new value. Immediately save the new
-               value to the Whoosh.
-             */
-
-            // Auto Buttons
-            case R.id.button_auto_inner_plus:
-                scoreView = findViewById(R.id.text_auto_inner_score);
-                data.setAutoInnerCells(incrementScore(scoreView));
-                break;
-            case R.id.button_auto_inner_minus:
-                scoreView = findViewById(R.id.text_auto_inner_score);
-                data.setAutoInnerCells(decrementScore(scoreView));
-                break;
-            case R.id.button_auto_outer_plus:
-                scoreView = findViewById(R.id.text_auto_outer_score);
-                data.setAutoOuterCells(incrementScore(scoreView));
-                break;
-            case R.id.button_auto_outer_minus:
-                scoreView = findViewById(R.id.text_auto_outer_score);
-                data.setAutoOuterCells(decrementScore(scoreView));
-                break;
-            case R.id.button_auto_lower_plus:
-                scoreView = findViewById(R.id.text_auto_lower_score);
-                data.setAutoLowerCells(incrementScore(scoreView));
-                break;
-            case R.id.button_auto_lower_minus:
-                scoreView = findViewById(R.id.text_auto_lower_score);
-                data.setAutoLowerCells(decrementScore(scoreView));
-                break;
-            case R.id.button_auto_pickup_plus:
-                scoreView = findViewById(R.id.text_auto_pickup_score);
-                data.setAutoPickupCells(incrementScore(scoreView));
-                break;
-            case R.id.button_auto_pickup_minus:
-                scoreView = findViewById(R.id.text_auto_pickup_score);
-                data.setAutoPickupCells(decrementScore(scoreView));
-                break;
-
-            // Teleop Buttons
-            case R.id.button_teleop_inner_plus:
-                scoreView = findViewById(R.id.text_teleop_inner_score);
-                data.setTeleopInnerCells(incrementScore(scoreView));
-                break;
-            case R.id.button_teleop_inner_minus:
-                scoreView = findViewById(R.id.text_teleop_inner_score);
-                data.setTeleopInnerCells(decrementScore(scoreView));
-                break;
-            case R.id.button_teleop_outer_plus:
-                scoreView = findViewById(R.id.text_teleop_outer_score);
-                data.setTeleopOuterCells(incrementScore(scoreView));
-                break;
-            case R.id.button_teleop_outer_minus:
-                scoreView = findViewById(R.id.text_teleop_outer_score);
-                data.setTeleopOuterCells(decrementScore(scoreView));
-                break;
-            case R.id.button_teleop_lower_plus:
-                scoreView = findViewById(R.id.text_teleop_lower_score);
-                data.setTeleopLowerCells(incrementScore(scoreView));
-                break;
-            case R.id.button_teleop_lower_minus:
-                scoreView = findViewById(R.id.text_teleop_lower_score);
-                data.setTeleopLowerCells(decrementScore(scoreView));
-                break;
-        }
-    }
-
-    /**
-     * Handles clicks for any compoundbutton (checkbox, togglebutton, radiobutton) within the
+     * Handles clicks for any CompoundButton (CheckBox, ToggleButton, RadioButton) within the
      * fragments. Saves the data into the Whoosh.
      */
-
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         // Teleop checkboxes (Wheel of Fortune)
-        switch (buttonView.getId()) {
-            case R.id.check_rotation:
-                data.setRotationControl(isChecked);
-                break;
-            case R.id.check_position:
-                data.setPositionControl(isChecked);
-                break;
+        int id = buttonView.getId();
+        if (id == R.id.check_rotation) {
+            data.setRotationControl(isChecked);
+        } else if (id == R.id.check_position) {
+            data.setPositionControl(isChecked);
         }
     }
 
     /**
-     * Takes any {@link TextView}, assuming its text can be understood as an integer, and decreases
-     * the number in it by one.
-     *
-     * @param v TextView
-     * @return the new number in the text view
+     * Handles the changes in any of the scores of any CounterView in the fragments.
+     * Saves the data into the Whoosh.
      */
-
-    private int incrementScore(TextView v) {
-        int currentScore = Integer.parseInt(v.getText().toString());
-        v.setText(String.valueOf(currentScore + 1));
-        return currentScore + 1;
-    }
-
-    /**
-     * Takes any {@link TextView}}, assuming its text can be understood as an integer greater than
-     * 0, and decreases the number in it by one. Does not allow negative numbers.
-     *
-     * @param v TextView
-     * @return the new number in the text view
-     */
-    private int decrementScore(TextView v) {
-        int currentScore = Integer.parseInt(v.getText().toString());
-        // No negative scores
-        if (currentScore > 0) {
-            v.setText(String.valueOf(currentScore - 1));
-            return currentScore - 1;
+    @Override
+    public void onScoreChanged(int newScore, CounterView counterView) {
+        if (counterView.getId() == R.id.counter_auto_inner) {
+            data.setAutoInnerCells(newScore);
         }
-        return currentScore;
     }
-
 }

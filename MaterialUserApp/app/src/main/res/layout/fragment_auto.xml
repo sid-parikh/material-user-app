@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".AutoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,112 +21,58 @@
             android:layout_marginBottom="8dp"
             android:text="@string/inner_header"
             android:textAppearance="?textAppearanceHeadline6"
-            app:layout_constraintBottom_toTopOf="@+id/button_auto_inner_minus"
+            app:layout_constraintBottom_toTopOf="@id/counter_auto_inner"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/button_auto_inner_minus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
+        <com.sidparikh.materialuserapp.CounterView
+            android:id="@+id/counter_auto_inner"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/minus"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@id/text_auto_outer_header"
-            app:layout_constraintEnd_toStartOf="@+id/text_auto_inner_score"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_auto_inner_header" />
-
-        <TextView
-            android:id="@+id/text_auto_inner_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minEms="2"
-            android:text="@string/zero"
-            android:textAlignment="center"
-            android:textAppearance="?textAppearanceBody1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_auto_inner_minus"
-            app:layout_constraintEnd_toStartOf="@+id/button_auto_inner_plus"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_auto_inner_minus" />
-
-        <Button
-            android:id="@+id/button_auto_inner_plus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plus"
-            app:layout_constraintBaseline_toBaselineOf="@+id/text_auto_inner_score"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_auto_inner_score" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_auto_inner_header" />
+
 
         <TextView
             android:id="@+id/text_auto_outer_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/outer_header"
             android:textAppearance="?textAppearanceHeadline6"
-            app:layout_constraintBottom_toTopOf="@+id/button_auto_outer_minus"
+            app:layout_constraintBottom_toTopOf="@id/counter_auto_outer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_auto_inner_minus"
+            app:layout_constraintTop_toBottomOf="@id/counter_auto_inner"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/button_auto_outer_minus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
+        <com.sidparikh.materialuserapp.CounterView
+            android:id="@+id/counter_auto_outer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/minus"
             app:layout_constraintBottom_toTopOf="@id/text_auto_lower_header"
-            app:layout_constraintEnd_toStartOf="@+id/text_auto_outer_score"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_auto_outer_header" />
-
-        <TextView
-            android:id="@+id/text_auto_outer_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minEms="2"
-            android:text="@string/zero"
-            android:textAlignment="center"
-            android:textAppearance="?textAppearanceBody1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_auto_outer_minus"
-            app:layout_constraintEnd_toStartOf="@+id/button_auto_outer_plus"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_auto_outer_minus" />
-
-        <Button
-            android:id="@+id/button_auto_outer_plus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plus"
-            app:layout_constraintBaseline_toBaselineOf="@+id/text_auto_outer_score"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_auto_outer_score" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_auto_outer_header" />
 
         <TextView
             android:id="@+id/text_auto_lower_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/lower_header"
             android:textAppearance="?textAppearanceHeadline6"
             app:layout_constraintBottom_toTopOf="@+id/button_auto_lower_minus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_auto_outer_minus"
+            app:layout_constraintTop_toBottomOf="@id/counter_auto_outer"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <Button

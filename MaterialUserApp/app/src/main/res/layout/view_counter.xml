@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/button_counter_minus"
+        style="@style/Widget.Storm.LargerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minus"
+        app:layout_constraintEnd_toStartOf="@+id/text_counter_score"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_counter_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minEms="2"
+        android:text="@string/zero"
+        android:textAlignment="center"
+        android:textAppearance="?textAppearanceBody1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_counter_minus"
+        app:layout_constraintEnd_toStartOf="@+id/button_counter_plus"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_counter_minus" />
+
+    <Button
+        android:id="@+id/button_counter_plus"
+        style="@style/Widget.Storm.LargerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plus"
+        app:layout_constraintBaseline_toBaselineOf="@+id/text_counter_score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_counter_score" />
+
+</merge>
