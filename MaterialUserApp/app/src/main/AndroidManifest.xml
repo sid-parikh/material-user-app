@@ -14,7 +14,7 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".MatchActivity"
+            android:name=".matchactivity.MatchActivity"
             android:label="Match"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">

@@ -23,13 +23,13 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.textfield.TextInputLayout;
+import com.sidparikh.materialuserapp.matchactivity.MatchActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String MATCH_EXTRA = "com.sidparikh.materialuserapp.intent.matchnumber";
     public static final String TEAM_EXTRA = "com.sidparikh.materialuserapp.intent.teamnumber";
     public static final String ALLIANCE_EXTRA = "com.sidparikh.materialuserapp.intent.alliance";
-    public static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private TextInputLayout mTeamTextLayout;
     private TextInputLayout mMatchTextLayout;
@@ -82,11 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_delete:
-                break;
-            case R.id.button_start:
-                start();
+        int id = v.getId();
+        if (id == R.id.button_delete) {
+        } else if (id == R.id.button_start) {
+            start();
         }
     }
 
@@ -177,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @return whether or not an error was found
      */
     public boolean checkNumberTextInput(final TextInputLayout textInputLayout) {
-        boolean errored = false;
+        boolean isError = false;
         final EditText editText = textInputLayout.getEditText();
 
         // This shouldn't happen but TextInputLayout#getEditText() is marked as nullable.
@@ -189,18 +188,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /* Check to make sure the entered text exists, is a number, and is shorter than
            the set max length */
         if (TextUtils.isEmpty(input)) {
-            errored = true;
+            isError = true;
             textInputLayout.setError(getString(R.string.error_field_empty));
         } else if (!TextUtils.isDigitsOnly(input)) {
-            errored = true;
+            isError = true;
             textInputLayout.setError(getString(R.string.error_notnumber));
         } else if (textInputLayout.getCounterMaxLength() > 0 && input.length() > textInputLayout.getCounterMaxLength()) {
-            errored = true;
+            isError = true;
             textInputLayout.setError(getString(R.string.error_toolong));
         }
 
         //  If errors were found, add a listener to dismiss the error once it is corrected
-        if (errored) {
+        if (isError) {
             editText.addTextChangedListener(new SmallerTextWatcher(textInputLayout, editText) {
                 @Override
                 public void afterTextChanged(String input, TextInputLayout layout,
@@ -219,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             });
         }
 
-        return errored;
+        return isError;
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.sidparikh.materialuserapp;
+package com.sidparikh.materialuserapp.matchactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.sidparikh.materialuserapp.MainActivity;
+import com.sidparikh.materialuserapp.R;
+import com.sidparikh.materialuserapp.data.Whoosh;
 
 /**
  * This activity is the main form-filling activity. It contains a ViewPager which switches through
@@ -97,8 +100,21 @@ public class MatchActivity extends AppCompatActivity
      */
     @Override
     public void onScoreChanged(int newScore, CounterView counterView) {
-        if (counterView.getId() == R.id.counter_auto_inner) {
+        int id = counterView.getId();
+        if (id == R.id.counter_auto_inner) {
             data.setAutoInnerCells(newScore);
+        } else if (id == R.id.counter_auto_outer) {
+            data.setAutoOuterCells(newScore);
+        } else if (id == R.id.counter_auto_lower) {
+            data.setAutoLowerCells(newScore);
+        } else if (id == R.id.counter_auto_pickup) {
+            data.setAutoPickupCells(newScore);
+        } else if (id == R.id.counter_teleop_inner) {
+            data.setTeleopInnerCells(newScore);
+        } else if (id == R.id.counter_teleop_outer) {
+            data.setTeleopOuterCells(newScore);
+        } else if (id == R.id.counter_teleop_lower) {
+            data.setTeleopLowerCells(newScore);
         }
     }
 }

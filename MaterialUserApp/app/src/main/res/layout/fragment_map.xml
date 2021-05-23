@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:paddingTop="?attr/actionBarSize"
-    tools:context=".MapFragment">
+    tools:context=".matchactivity.fragments.MapFragment">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

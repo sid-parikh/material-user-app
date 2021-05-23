@@ -1,4 +1,4 @@
-package com.sidparikh.materialuserapp;
+package com.sidparikh.materialuserapp.data;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -6,6 +6,7 @@ import androidx.room.Entity;
 
 import java.io.Serializable;
 
+@SuppressWarnings("unused")
 @Entity(tableName = "whooshes", primaryKeys = {"team_num", "match_num"})
 public class Whoosh implements Serializable {
 

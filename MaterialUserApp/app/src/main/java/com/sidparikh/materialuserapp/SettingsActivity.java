@@ -35,7 +35,6 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int x;
         if (item.getItemId() == android.R.id.home) {
             // Return to previous activity, regardless of which activity launched this activity.
             finish();

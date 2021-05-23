@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AutoFragment">
+    tools:context=".matchactivity.fragments.AutoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,7 +12,6 @@
         android:layout_gravity="center_vertical"
         android:padding="16dp"
         android:translationY="-20sp">
-
 
         <TextView
             android:id="@+id/text_auto_inner_header"
@@ -27,11 +26,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <com.sidparikh.materialuserapp.CounterView
+        <com.sidparikh.materialuserapp.matchactivity.CounterView
             android:id="@+id/counter_auto_inner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@id/text_auto_outer_header"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +41,6 @@
             android:id="@+id/text_auto_outer_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/outer_header"
             android:textAppearance="?textAppearanceHeadline6"
@@ -52,10 +50,11 @@
             app:layout_constraintTop_toBottomOf="@id/counter_auto_inner"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <com.sidparikh.materialuserapp.CounterView
+        <com.sidparikh.materialuserapp.matchactivity.CounterView
             android:id="@+id/counter_auto_outer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@id/text_auto_lower_header"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,52 +64,24 @@
             android:id="@+id/text_auto_lower_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/lower_header"
             android:textAppearance="?textAppearanceHeadline6"
-            app:layout_constraintBottom_toTopOf="@+id/button_auto_lower_minus"
+            app:layout_constraintBottom_toTopOf="@id/counter_auto_lower"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/counter_auto_outer"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/button_auto_lower_minus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
+        <com.sidparikh.materialuserapp.matchactivity.CounterView
+            android:id="@+id/counter_auto_lower"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@string/minus"
             app:layout_constraintBottom_toTopOf="@id/text_auto_pickup_header"
-            app:layout_constraintEnd_toStartOf="@+id/text_auto_lower_score"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_auto_lower_header" />
-
-        <TextView
-            android:id="@+id/text_auto_lower_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minEms="2"
-            android:text="@string/zero"
-            android:textAlignment="center"
-            android:textAppearance="?textAppearanceBody1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_auto_lower_minus"
-            app:layout_constraintEnd_toStartOf="@+id/button_auto_lower_plus"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_auto_lower_minus" />
-
-        <Button
-            android:id="@+id/button_auto_lower_plus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plus"
-            app:layout_constraintBaseline_toBaselineOf="@+id/text_auto_lower_score"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_auto_lower_score" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_auto_lower_header" />
 
         <TextView
             android:id="@+id/text_auto_pickup_header"
@@ -119,48 +90,19 @@
             android:layout_marginBottom="8dp"
             android:text="@string/pickup_header"
             android:textAppearance="?textAppearanceHeadline6"
-            app:layout_constraintBottom_toTopOf="@+id/button_auto_pickup_minus"
+            app:layout_constraintBottom_toTopOf="@id/counter_auto_pickup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_auto_lower_minus"
+            app:layout_constraintTop_toBottomOf="@id/counter_auto_lower"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/button_auto_pickup_minus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
+        <com.sidparikh.materialuserapp.matchactivity.CounterView
+            android:id="@+id/counter_auto_pickup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/minus"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/text_auto_pickup_score"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_auto_pickup_header" />
-
-        <TextView
-            android:id="@+id/text_auto_pickup_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minEms="2"
-            android:text="@string/zero"
-            android:textAlignment="center"
-            android:textAppearance="?textAppearanceBody1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_auto_pickup_minus"
-            app:layout_constraintEnd_toStartOf="@+id/button_auto_pickup_plus"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_auto_pickup_minus" />
-
-        <Button
-            android:id="@+id/button_auto_pickup_plus"
-            style="@style/Widget.Storm.LargerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plus"
-            app:layout_constraintBaseline_toBaselineOf="@+id/text_auto_pickup_score"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_auto_pickup_score" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_auto_pickup_header" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

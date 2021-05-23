@@ -1,4 +1,4 @@
-package com.sidparikh.materialuserapp;
+package com.sidparikh.materialuserapp.matchactivity.fragments;
 
 import android.os.Bundle;
 
@@ -8,16 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.sidparikh.materialuserapp.R;
 
-public class MapFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class EndgameFragment extends Fragment {
 
-    public MapFragment() {
+    public EndgameFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        return inflater.inflate(R.layout.fragment_endgame, container, false);
     }
 }
