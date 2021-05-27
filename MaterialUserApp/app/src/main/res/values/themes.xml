@@ -64,6 +64,9 @@
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Storm.BottomSheetDialog</item>
         <item name="navigationViewStyle">@style/Widget.Storm.NavigationView</item>
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
+
+        <!-- Material Button Override -->
+        <item name="materialButtonOutlinedStyle">@style/Widget.Storm.Button.OutlinedButton</item>
     </style>
     <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>

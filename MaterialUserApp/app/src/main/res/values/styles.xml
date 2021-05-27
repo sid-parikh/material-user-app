@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 ~ Copyright (C) 2019 The Android Open Source Project
 ~
 ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,19 +14,22 @@
 ~ limitations under the License.
 -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 
     <!--Components-->
 
-    <!--Bottom Sheets-->
+    <!--Bottom She"ets-->
     <style name="ThemeOverlay.Storm.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
         <item name="bottomSheetStyle">@style/Widget.Storm.BottomSheet.Modal</item>
         <item name="android:navigationBarColor" tools:ignore="NewApi">?attr/colorSurface</item>
-        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
     </style>
+
     <style name="Widget.Storm.BottomSheet.Modal" parent="Widget.MaterialComponents.BottomSheet.Modal">
         <item name="shapeAppearanceOverlay">?attr/shapeAppearanceLargeComponent</item>
     </style>
@@ -40,15 +42,26 @@
     <!--Larger EditTexts-->
 
     <style name="Widget.Storm.LargerTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="hintTextAppearance">@style/TextAppearance.Storm.LargerTextInputLayout.HintText</item>
-        <item name="helperTextTextAppearance">@style/TextAppearance.Storm.LargerTextInputLayout.HintText</item>
-        <item name="errorTextAppearance">@style/TextAppearance.Storm.LargerTextInputLayout.HintText</item>
-        <item name="counterTextAppearance">@style/TextAppearance.Storm.LargerTextInputLayout.HintText</item>
-        <item name="counterOverflowTextAppearance">@style/TextAppearance.Storm.LargerTextInputLayout.HintText</item>
+        <item name="hintTextAppearance">@style/TextAppearance.Storm.LargerTextInputLayout.HintText
+        </item>
+        <item name="helperTextTextAppearance">
+            @style/TextAppearance.Storm.LargerTextInputLayout.HintText
+        </item>
+        <item name="errorTextAppearance">
+            @style/TextAppearance.Storm.LargerTextInputLayout.HintText
+        </item>
+        <item name="counterTextAppearance">
+            @style/TextAppearance.Storm.LargerTextInputLayout.HintText
+        </item>
+        <item name="counterOverflowTextAppearance">
+            @style/TextAppearance.Storm.LargerTextInputLayout.HintText
+        </item>
     </style>
 
     <style name="Widget.Storm.LargerTextInputEditText" parent="Widget.AppCompat.EditText">
-        <item name="android:textAppearance">@style/TextAppearance.Storm.LargerTextInputLayout.InputText</item>
+        <item name="android:textAppearance">
+            @style/TextAppearance.Storm.LargerTextInputLayout.InputText
+        </item>
     </style>
 
     <style name="TextAppearance.Storm.LargerTextInputLayout.InputText" parent="TextAppearance.Storm.Subtitle1">
@@ -62,18 +75,22 @@
 
 
     <!--Larger Button-->
-
     <style name="Widget.Storm.LargerButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textAppearance">@style/TextAppearance.Storm.LargerButton</item>
     </style>
 
-    <style name="Widget.Storm.LargerButton.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton" >
+    <style name="Widget.Storm.LargerButton.OutlinedButton" parent="Widget.Storm.Button.OutlinedButton">
         <item name="android:textAppearance">@style/TextAppearance.Storm.LargerButton</item>
     </style>
 
     <style name="TextAppearance.Storm.LargerButton" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">18sp</item>
         <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+    <!-- Outlined Button -->
+    <style name="Widget.Storm.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/outlined_button_stroke_selector</item>
     </style>
 
 </resources>
