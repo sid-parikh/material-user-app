@@ -99,7 +99,7 @@ public class MatchActivity extends AppCompatActivity
      * Saves the data into the Whoosh.
      */
     @Override
-    public void onScoreChanged(int newScore, CounterView counterView) {
+    public void onScoreChanged(CounterView counterView, int newScore) {
         int id = counterView.getId();
         if (id == R.id.counter_auto_inner) {
             data.setAutoInnerCells(newScore);

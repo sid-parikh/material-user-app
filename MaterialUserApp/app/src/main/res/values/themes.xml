@@ -16,6 +16,10 @@
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--Top level DayNight theme to be used in AndroidManifest.xml-->
+    <style name="Theme.Storm.Splash" parent="Theme.Storm" >
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
     <style name="Theme.Storm" parent="Base.Theme.Storm"/>
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.Theme.Storm" parent="Base.Theme.MaterialThemeBuilder">

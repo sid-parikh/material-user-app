@@ -68,11 +68,11 @@ public class CounterView extends ConstraintLayout implements View.OnClickListene
         mScoreView.setText(String.valueOf(s));
 
         if (mListener != null) {
-            mListener.onScoreChanged(s, this);
+            mListener.onScoreChanged(this, s);
         }
     }
 
     public interface ScoreChangeListener {
-        void onScoreChanged(int newScore, CounterView counterView);
+        void onScoreChanged(CounterView counterView, int newScore);
     }
 }
