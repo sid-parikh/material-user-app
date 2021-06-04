@@ -1,4 +1,4 @@
-package com.sidparikh.materialuserapp;
+package com.sidparikh.materialuserapp.matchactivity.fragments;
 
 import android.os.Bundle;
 
@@ -10,6 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+
+import com.sidparikh.materialuserapp.R;
+import com.sidparikh.materialuserapp.matchactivity.CounterView;
+import com.sidparikh.materialuserapp.matchactivity.MatchActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,13 +29,10 @@ public class TeleopFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final MatchActivity matchActivity = (MatchActivity) requireActivity();
 
-        // MatchActivity will handle all of the incrementing and decrementing
-        view.findViewById(R.id.button_teleop_inner_minus).setOnClickListener(matchActivity);
-        view.findViewById(R.id.button_teleop_inner_plus).setOnClickListener(matchActivity);
-        view.findViewById(R.id.button_teleop_outer_minus).setOnClickListener(matchActivity);
-        view.findViewById(R.id.button_teleop_outer_plus).setOnClickListener(matchActivity);
-        view.findViewById(R.id.button_teleop_lower_minus).setOnClickListener(matchActivity);
-        view.findViewById(R.id.button_teleop_lower_plus).setOnClickListener(matchActivity);
+        // MatchActivity will handle the counters. This makes it easy to save the data in one place
+        ((CounterView) view.findViewById(R.id.counter_teleop_inner)).setScoreChangeListener(matchActivity);
+        ((CounterView) view.findViewById(R.id.counter_teleop_outer)).setScoreChangeListener(matchActivity);
+        ((CounterView) view.findViewById(R.id.counter_teleop_lower)).setScoreChangeListener(matchActivity);
 
         // MatchActivity will also handle the checkboxes. This makes it easy to save the data
         CheckBox positionCheckBox = view.findViewById(R.id.check_position);

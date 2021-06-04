@@ -16,6 +16,10 @@
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--Top level DayNight theme to be used in AndroidManifest.xml-->
+    <style name="Theme.Storm.Splash" parent="Theme.Storm" >
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
     <style name="Theme.Storm" parent="Base.Theme.Storm"/>
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.Theme.Storm" parent="Base.Theme.MaterialThemeBuilder">
@@ -64,6 +68,9 @@
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Storm.BottomSheetDialog</item>
         <item name="navigationViewStyle">@style/Widget.Storm.NavigationView</item>
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
+
+        <!-- Material Button Override -->
+        <item name="materialButtonOutlinedStyle">@style/Widget.Storm.Button.OutlinedButton</item>
     </style>
     <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>

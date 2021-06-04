@@ -1,9 +1,13 @@
-package com.sidparikh.materialuserapp;
+package com.sidparikh.materialuserapp.matchactivity;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.sidparikh.materialuserapp.R;
+import com.sidparikh.materialuserapp.matchactivity.fragments.AutoFragment;
+import com.sidparikh.materialuserapp.matchactivity.fragments.TeleopFragment;
 
 public class MatchFragmentPagerAdapter extends FragmentStateAdapter {
 
@@ -16,8 +20,6 @@ public class MatchFragmentPagerAdapter extends FragmentStateAdapter {
 
     public static final int[] TAB_NAMES = new int[]{R.string.tab_auto, R.string.tab_teleop};
     private static final int TAB_COUNT = TAB_NAMES.length;
-
-    private static Class[] test = new Class[]{AutoFragment.class};
 
     public MatchFragmentPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
