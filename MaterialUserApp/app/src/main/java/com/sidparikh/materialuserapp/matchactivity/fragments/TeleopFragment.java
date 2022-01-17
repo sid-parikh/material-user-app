@@ -40,6 +40,8 @@ public class TeleopFragment extends Fragment {
 
         positionCheckBox.setOnCheckedChangeListener(matchActivity);
         rotationChecKBox.setOnCheckedChangeListener(matchActivity);
+
+        matchActivity.addFreezableLayout(view.findViewById(R.id.layout_teleop_freezable));
     }
 
     @Override
