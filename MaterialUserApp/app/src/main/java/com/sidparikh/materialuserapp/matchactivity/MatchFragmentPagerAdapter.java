@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.sidparikh.materialuserapp.R;
 import com.sidparikh.materialuserapp.matchactivity.fragments.AutoFragment;
+import com.sidparikh.materialuserapp.matchactivity.fragments.MapFragment;
 import com.sidparikh.materialuserapp.matchactivity.fragments.TeleopFragment;
 
 public class MatchFragmentPagerAdapter extends FragmentStateAdapter {
@@ -18,7 +19,7 @@ public class MatchFragmentPagerAdapter extends FragmentStateAdapter {
        3 EndgameFragment
      */
 
-    public static final int[] TAB_NAMES = new int[]{R.string.tab_auto, R.string.tab_teleop};
+    public static final int[] TAB_NAMES = new int[]{R.string.tab_auto, R.string.tab_teleop, R.string.tab_map};
     private static final int TAB_COUNT = TAB_NAMES.length;
 
     public MatchFragmentPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -33,6 +34,8 @@ public class MatchFragmentPagerAdapter extends FragmentStateAdapter {
                 return new AutoFragment();
             case 1:
                 return new TeleopFragment();
+            case 2:
+                return new MapFragment();
         }
         // This should never happen and will obviously create a NullPointerException.
         return null;

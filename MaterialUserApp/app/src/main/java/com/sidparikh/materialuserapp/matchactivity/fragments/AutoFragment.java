@@ -37,5 +37,7 @@ public class AutoFragment extends Fragment {
         ((CounterView) view.findViewById(R.id.counter_auto_lower)).setScoreChangeListener(matchActivity);
         ((CounterView) view.findViewById(R.id.counter_auto_pickup)).setScoreChangeListener(matchActivity);
 
+        matchActivity.addFreezableLayout(view.findViewById(R.id.layout_auto_freezable));
+
     }
 }

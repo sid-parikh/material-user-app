@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".matchactivity.fragments.TeleopFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.sidparikh.materialuserapp.matchactivity.FreezableConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:padding="16dp"
+        android:id="@+id/layout_teleop_freezable"
         android:translationY="-20sp">
 
 
@@ -138,5 +139,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/counter_teleop_lower" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.sidparikh.materialuserapp.matchactivity.FreezableConstraintLayout>
 </ScrollView>

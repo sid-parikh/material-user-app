@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".matchactivity.MatchActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".matchactivity.MatchActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/layout_appbar_match"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/pager_match"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_match"
@@ -31,36 +36,54 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager_match"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/toggleGroup_defense"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_appbar_match" />
 
-        <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/text_chrono_label"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:text="@string/chrono_label"
+        app:layout_constraintBottom_toBottomOf="@+id/chronometer_defense"
+        app:layout_constraintEnd_toStartOf="@+id/chronometer_defense"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chronometer_defense" />
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/toggleGroup_defense"
+    <Chronometer
+        android:id="@+id/chronometer_defense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceHeadline5"
+        app:layout_constraintBottom_toBottomOf="@+id/toggleGroup_defense"
+        app:layout_constraintEnd_toStartOf="@+id/toggleGroup_defense"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_chrono_label"
+        app:layout_constraintTop_toTopOf="@+id/toggleGroup_defense" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleGroup_defense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/chronometer_defense"
+        app:layout_constraintTop_toBottomOf="@+id/pager_match"
+        app:selectionRequired="false">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/toggle_defense"
+            style="@style/Widget.Storm.LargerButton.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:selectionRequired="false">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/toggle_defense"
-                style="@style/Widget.Storm.LargerButton.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="?attr/actionBarSize"
-                android:text="@string/scoring" />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
-
-        <Chronometer
-            android:id="@+id/chronometer_defense"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:textAppearance="?textAppearanceHeadline6" />
-    </LinearLayout>
-</LinearLayout>
+            android:text="@string/scoring" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

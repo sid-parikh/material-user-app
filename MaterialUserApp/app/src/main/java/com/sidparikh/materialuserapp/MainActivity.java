@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void start() {
         // Check Match and Team for errors.
-        boolean teamError = checkNumberTextInput(mTeamTextLayout);
-        boolean matchError = checkNumberTextInput(mMatchTextLayout);
+        boolean teamError = checkNumberTextInput(mTeamTextLayout, getString(R.string.error_teamnum_missing));
+        boolean matchError = checkNumberTextInput(mMatchTextLayout, getString(R.string.error_matchnum_missing));
         boolean allianceError = checkToggleGroup();
 
         // Only continue if there are no errors.
@@ -174,10 +174,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * The parameters for validation are that the entered input must be 1. Not Empty 2. Digits Only
      * 3. Less than the set max length, if one is set as an attribute of the TextInputLayout.
      *
-     * @param textInputLayout TextInputLayout to monitor
+     * @param textInputLayout      TextInputLayout to monitor
+     * @param contextualEmptyError The error message to be displayed if this TextInputLayout is empty.
      * @return whether or not an error was found
      */
-    public boolean checkNumberTextInput(final TextInputLayout textInputLayout) {
+    public boolean checkNumberTextInput(final TextInputLayout textInputLayout, String contextualEmptyError) {
         boolean isError = false;
         final EditText editText = textInputLayout.getEditText();
 
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            the set max length */
         if (TextUtils.isEmpty(input)) {
             isError = true;
-            textInputLayout.setError(getString(R.string.error_field_empty));
+            textInputLayout.setError(contextualEmptyError);
         } else if (!TextUtils.isDigitsOnly(input)) {
             isError = true;
             textInputLayout.setError(getString(R.string.error_notnumber));
@@ -221,6 +222,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return isError;
+    }
+
+    /**
+     * Version of {@link MainActivity#checkNumberTextInput(TextInputLayout, String)} that uses a
+     * default empty message.
+     *
+     * @param textInputLayout TextInputLayout to monitor
+     * @return whether or not an error was found
+     */
+    public boolean checkNumberTextInput(final TextInputLayout textInputLayout) {
+        return checkNumberTextInput(textInputLayout, getString(R.string.error_field_empty));
     }
 
     /**
