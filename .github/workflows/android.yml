@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: enter the right directory
-      run: cd ./MaterialUserApp
     - name: set up JDK 11
       uses: actions/setup-java@v2
       with:
@@ -22,6 +20,6 @@ jobs:
         distribution: 'temurin'
         cache: gradle
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x MaterialUserApp/gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: MaterialUserApp/gradlew build
